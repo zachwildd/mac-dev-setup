@@ -17,12 +17,8 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [Python](#python)
 - [Node.js](#nodejs)
 - [Ruby](#ruby)
-- [Heroku](#heroku)
-- [PostgreSQL](#postgresql)
-- [Redis](#redis)
-- [Elasticsearch](#elasticsearch)
-- [Projects folder](#projects-folder)
-- [Apps](#apps)
+- [Java](#java)
+- [Docker](#docker)
 
 ## System update
 
@@ -716,139 +712,15 @@ bundle update <gem>
 
 For more information, see the [Bundler documentation](https://bundler.io/docs.html).
 
-## Heroku
-
-[Heroku](http://www.heroku.com/) is a [Platform-as-a-Service](http://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) that makes it really easy to deploy your apps. There are other similar solutions out there, but Heroku is among the most popular. Not only does it make a developer's life easier, but I find that having Heroku deployment in mind when building an app forces you to follow modern app development [best practices](http://www.12factor.net/).
-
-Assuming that you have an account (sign up if you don't), let's install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
+## Java
 
 ```
-brew tap heroku/brew
-brew install heroku
+brew install jenv
 ```
 
-Login to your Heroku account using:
+## Docker
 
 ```
-heroku login
+brew install docker
+brew install docker-compose
 ```
-
-(This will prompt you to open a page in your web browser and log in to your Heroku account.)
-
-Once logged-in, you're ready to deploy apps! Heroku has great [Getting Started](https://devcenter.heroku.com/start) guides for different languages, so I'll let you refer to that. Heroku uses Git to push code for deployment, so make sure your app is under Git version control. A quick cheat sheet (if you've used Heroku before):
-
-```
-cd myapp/
-heroku create myapp
-git push heroku master
-heroku ps
-heroku logs -t
-```
-
-The [Heroku Dev Center](https://devcenter.heroku.com/) is full of great resources, so be sure to check it out!
-
-## PostgreSQL
-
-[PostgreSQL](https://www.postgresql.org/) is a popular relational database, and Heroku has first-class support for it.
-
-Install PostgreSQL using Homebrew:
-
-```
-brew install postgresql
-```
-
-It will automatically add itself to Homebrew Services. Start it with:
-
-```
-brew services start postgresql
-```
-
-If you reboot your machine, PostgreSQL will be restarted at login.
-
-### GUI
-
-You can interact with your SQL database by running `psql` in the terminal.
-
-If you prefer a GUI (Graphical User Interface), [Postico](https://eggerapps.at/postico/) has a simple free version that let's you explore tables and run SQL queries.
-
-## Redis
-
-[Redis](http://redis.io/) is a fast, in-memory, key-value store, that uses the disk for persistence. It complements nicely a database such as PostgreSQL. There are a lot of [interesting things](http://oldblog.antirez.com/post/take-advantage-of-redis-adding-it-to-your-stack.html) that you can do with it. For example, it's often used for session management or caching by web apps, but it has many other uses.
-
-To install Redis, use Homebrew:
-
-```
-brew install redis
-```
-
-Start it through Homebrew Services with:
-
-```
-brew services start redis
-```
-
-I'll let you refer to Redis' [documentation](http://redis.io/documentation) or other tutorials for more information.
-
-## Elasticsearch
-
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) is a distributed search and analytics engine. It uses an HTTP REST API, making it easy to work with from any programming language.
-
-You can use elasticsearch for things such as real-time search results, autocomplete, recommendations, machine learning, and more.
-
-### Install
-
-Elasticsearch runs on Java, so check if you have it installed by running:
-
-```bash
-java -version
-```
-
-If Java isn't installed yet, dismiss the window that just appeared by clicking "Ok", and install Java via Homebrew:
-
-```
-brew cask install homebrew/cask-versions/java8
-```
-
-Next, install Elasticsearch with:
-
-```bash
-brew install elasticsearch
-```
-
-### Usage
-
-Start the Elasticsearch server with:
-
-```bash
-brew services start elasticsearch
-```
-
-Test that the server is working correctly by running:
-
-```bash
-curl -XGET 'http://localhost:9200/'
-```
-
-(You may need to wait a little bit for it to boot up if you just started the service.)
-
-Elasticsearch's [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) is more of a reference. To get started, you can also take a look at [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html).
-
-### GUI
-
-You can interact with the Elasticsearch server using `curl`, or anything that can send an HTTP request.
-
-However, if you prefer a graphical interface, you can take a look at [Dejavu](https://opensource.appbase.io/dejavu/). You can easily install it via the [Dejavu Chrome Extension](https://chrome.google.com/webstore/detail/dejavu-elasticsearch-web/jopjeaiilkcibeohjdmejhoifenbnmlh).
-
-## Projects folder
-
-This really depends on how you want to organize your files, but I like to put all my version-controlled projects in `~/Projects`. Other documents I may have, or things not yet under version control, I like to put in `~/Dropbox` (if you have [Dropbox](https://www.dropbox.com/) installed), or `~/Documents` if you prefer to use [iCloud Drive](https://support.apple.com/en-ca/HT206985).
-
-## Apps
-
-Here is a quick list of some apps I use, and that you might find useful as well:
-
-- [1Password](https://1password.com/): Securely store your login and passwords, and access them from all your devices. **($3/month)**
-- [Dropbox](https://www.dropbox.com/): File syncing to the cloud. It is cross-platform, but if all your devices are Apple you may prefer [iCloud Drive](https://support.apple.com/en-ca/HT206985). **(Free for 2GB)**
-- [Postman](https://www.getpostman.com/): Easily make HTTP requests. Useful to test your REST APIs. **(Free for basic features)**
-- [GitHub Desktop](https://desktop.github.com/): I do everything through the `git` command-line tool, but I like to use GitHub Desktop just to review the diff of my changes. **(Free)**
-- [Spectacle](https://www.spectacleapp.com/): Move and resize windows with keyboard shortcuts. **(Free)**
